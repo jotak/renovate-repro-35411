@@ -1,7 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>konflux-ci/mintmaker//config/renovate/renovate.json"
+  ],
   "labels": ["dependencies"],
   "gomod": {
+    "schedule": [
+      "after 5am on wednesday"
+    ],
     "postUpdateOptions": [
       "gomodUpdateImportPaths",
       "gomodTidy"
