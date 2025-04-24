@@ -2,29 +2,21 @@
 
 ## Current behavior
 
-Failing to update a go module from version+digest to newer version (which is without digest: v0.5.10).
-See in [renovate.log](./renovate.log) :
+`go.mod` is modified with only the digest (without version), which breaks go.mod:
 
-```json
-                 "updates": [],
-                 "packageName": "github.com/safchain/ethtool",
-                 "warnings": [
-                   {
-                     "message": "Could not determine new digest for update (go package github.com/safchain/ethtool)",
-                     "topic": "github.com/safchain/ethtool"
-                   }
-                 ]
+```
+google.golang.org/genproto/googleapis/api 2d3770c4ea7f
 ```
 
-I'm running:
-
-```bash
-LOG_LEVEL=debug npx --package renovate -- renovate --platform=local
-```
+e.g: https://github.com/netobserv/flowlogs-pipeline/pull/918/files#diff-33ef32bf6c23acb95f5902d7097b7a1d5128ca061167ec0716715b0b9eeaa5f6R147
 
 ## Expected behavior
 
-Since versions without digest is very common in go, the update should work and not complain about missing digest.
+Should be updated with the full version+digest:
+
+```
+google.golang.org/genproto/googleapis/api v0.0.0-20250422160041-2d3770c4ea7f
+```
 
 ## Link to the Renovate issue or Discussion
 
