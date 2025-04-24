@@ -1,1 +1,21 @@
-{}
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "labels": ["dependencies"],
+  "gomod": {
+    "postUpdateOptions": [
+      "gomodUpdateImportPaths",
+      "gomodTidy"
+    ],
+    "packageRules": [
+      {
+        "matchManagers": ["gomod"],
+        "matchDepTypes": ["indirect"],
+        "enabled": true
+      },
+      {
+        "matchPackageNames": ["**"],
+        "groupName": "Go modules"
+      }
+    ]
+  }
+}
