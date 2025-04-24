@@ -1,0 +1,297 @@
+ WARN: RE2 not usable, falling back to RegExp
+       "err": {
+         "code": "ERR_DLOPEN_FAILED",
+         "message": "The module '/home/jotak/.npm/_npx/05eeecd92f4e18e0/node_modules/re2/build/Release/re2.node'\nwas compiled against a different Node.js version using\nNODE_MODULE_VERSION 93. This version of Node.js requires\nNODE_MODULE_VERSION 115. Please try re-compiling or re-installing\nthe module (for instance, using `npm rebuild` or `npm install`).",
+         "stack": "Error: The module '/home/jotak/.npm/_npx/05eeecd92f4e18e0/node_modules/re2/build/Release/re2.node'\nwas compiled against a different Node.js version using\nNODE_MODULE_VERSION 93. This version of Node.js requires\nNODE_MODULE_VERSION 115. Please try re-compiling or re-installing\nthe module (for instance, using `npm rebuild` or `npm install`).\n    at Object.Module._extensions..node (node:internal/modules/cjs/loader:1651:18)\n    at Module.load (node:internal/modules/cjs/loader:1275:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:1096:12)\n    at Module.require (node:internal/modules/cjs/loader:1298:19)\n    at require (node:internal/modules/helpers:182:18)\n    at Object.<anonymous> (/home/jotak/.npm/_npx/05eeecd92f4e18e0/node_modules/re2/re2.js:3:13)\n    at Module._compile (node:internal/modules/cjs/loader:1529:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1613:10)\n    at Module.load (node:internal/modules/cjs/loader:1275:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:1096:12)"
+       }
+DEBUG: Parsing configs
+DEBUG: No config file found on disk - skipping
+DEBUG: File config
+       "config": {}
+DEBUG: CLI config
+       "config": {"platform": "local"}
+DEBUG: Env config
+       "config": {"hostRules": []}
+DEBUG: Combined config
+       "config": {"hostRules": [], "platform": "local"}
+DEBUG: Enabling forkProcessing while in non-autodiscover mode
+DEBUG: Enabling onboardingNoDeps while in non-autodiscover mode
+DEBUG: Found valid git version: 2.49.0
+DEBUG: Setting global hostRules
+DEBUG: Using baseDir: /tmp/renovate
+DEBUG: Using cacheDir: /tmp/renovate/cache
+DEBUG: Using containerbaseDir: /tmp/renovate/cache/containerbase
+DEBUG: Initializing Renovate internal cache into /tmp/renovate/cache/renovate/renovate-cache-v1
+DEBUG: Commits limit = null
+DEBUG: Setting global hostRules
+DEBUG: validatePresets()
+DEBUG: Reinitializing hostRules for repo
+DEBUG: Clearing hostRules
+ INFO: Repository started (repository=local)
+       "renovateVersion": "39.257.6"
+DEBUG: Using localDir: /w/renovate-repro-35411 (repository=local)
+DEBUG: PackageFiles.clear() - Package files deleted (repository=local)
+DEBUG: Resetting npmrc (repository=local)
+DEBUG: Resetting npmrc (repository=local)
+DEBUG: checkOnboarding() (repository=local)
+DEBUG: isOnboarded() (repository=local)
+DEBUG: findFile(renovate.json) (repository=local)
+DEBUG: Got file list using git (repository=local)
+DEBUG: Config file exists, fileName: renovate.json (repository=local)
+DEBUG: Repo is onboarded (repository=local)
+DEBUG: Got file list using git (repository=local)
+DEBUG: Found renovate.json config file (repository=local)
+DEBUG: Repository config (repository=local)
+       "fileName": "renovate.json",
+       "config": {}
+DEBUG: migrateAndValidate() (repository=local)
+DEBUG: No config migration necessary (repository=local)
+DEBUG: Found repo ignorePaths (repository=local)
+       "ignorePaths": ["**/node_modules/**", "**/bower_components/**"]
+DEBUG: No vulnerability alerts found (repository=local)
+DEBUG: No baseBranches (repository=local)
+DEBUG: extract() (repository=local)
+DEBUG: Got file list using git (repository=local)
+DEBUG: Using file match: (^|/)tasks/[^/]+\.ya?ml$ for manager ansible (repository=local)
+DEBUG: Using file match: (^|/)(galaxy|requirements)(\.ansible)?\.ya?ml$ for manager ansible-galaxy (repository=local)
+DEBUG: Using file match: (^|/)\.tool-versions$ for manager asdf (repository=local)
+DEBUG: Using file match: (^|/).azuredevops/.+\.ya?ml$ for manager azure-pipelines (repository=local)
+DEBUG: Using file match: azure.*pipelines?.*\.ya?ml$ for manager azure-pipelines (repository=local)
+DEBUG: Using file match: (^|/)batect(-bundle)?\.ya?ml$ for manager batect (repository=local)
+DEBUG: Using file match: (^|/)batect$ for manager batect-wrapper (repository=local)
+DEBUG: Using file match: (^|/)WORKSPACE(|\.bazel|\.bzlmod)$ for manager bazel (repository=local)
+DEBUG: Using file match: \.WORKSPACE\.bazel$ for manager bazel (repository=local)
+DEBUG: Using file match: \.bzl$ for manager bazel (repository=local)
+DEBUG: Using file match: (^|/|\.)MODULE\.bazel$ for manager bazel-module (repository=local)
+DEBUG: Using file match: (^|/)\.bazelversion$ for manager bazelisk (repository=local)
+DEBUG: Using file match: \.bicep$ for manager bicep (repository=local)
+DEBUG: Using file match: (^|/)\.?bitbucket-pipelines\.ya?ml$ for manager bitbucket-pipelines (repository=local)
+DEBUG: Using file match: (^|/)bitrise\.ya?ml$ for manager bitrise (repository=local)
+DEBUG: Using file match: buildkite\.ya?ml for manager buildkite (repository=local)
+DEBUG: Using file match: \.buildkite/.+\.ya?ml$ for manager buildkite (repository=local)
+DEBUG: Using file match: (^|/)project\.toml$ for manager buildpacks (repository=local)
+DEBUG: Using file match: (^|/)bun\.lockb?$ for manager bun (repository=local)
+DEBUG: Using file match: (^|/)package\.json$ for manager bun (repository=local)
+DEBUG: Using file match: (^|/)\.bun-version$ for manager bun-version (repository=local)
+DEBUG: Using file match: (^|/)Gemfile$ for manager bundler (repository=local)
+DEBUG: Using file match: \.cake$ for manager cake (repository=local)
+DEBUG: Using file match: (^|/)Cargo\.toml$ for manager cargo (repository=local)
+DEBUG: Using file match: (^|/)\.circleci/.+\.ya?ml$ for manager circleci (repository=local)
+DEBUG: Using file match: (^|/)cloudbuild\.ya?ml for manager cloudbuild (repository=local)
+DEBUG: Using file match: (^|/)Podfile$ for manager cocoapods (repository=local)
+DEBUG: Using file match: (^|/)([\w-]*)composer\.json$ for manager composer (repository=local)
+DEBUG: Using file match: (^|/)conanfile\.(txt|py)$ for manager conan (repository=local)
+DEBUG: Using file match: (^|/)\.copier-answers(\..+)?\.ya?ml for manager copier (repository=local)
+DEBUG: Using file match: (^|/)cpanfile$ for manager cpanfile (repository=local)
+DEBUG: Using file match: (^|/)(?:deps|bb)\.edn$ for manager deps-edn (repository=local)
+DEBUG: Using file match: (^|/)devbox\.json$ for manager devbox (repository=local)
+DEBUG: Using file match: ^.devcontainer/devcontainer.json$ for manager devcontainer (repository=local)
+DEBUG: Using file match: ^.devcontainer.json$ for manager devcontainer (repository=local)
+DEBUG: Using file match: (^|/)(?:docker-)?compose[^/]*\.ya?ml$ for manager docker-compose (repository=local)
+DEBUG: Using file match: (^|/|\.)([Dd]ocker|[Cc]ontainer)file$ for manager dockerfile (repository=local)
+DEBUG: Using file match: (^|/)([Dd]ocker|[Cc]ontainer)file[^/]*$ for manager dockerfile (repository=local)
+DEBUG: Using file match: (^|/)\.drone\.yml$ for manager droneci (repository=local)
+DEBUG: Using file match: (^|/)fleet\.ya?ml for manager fleet (repository=local)
+DEBUG: Using file match: (?:^|/)gotk-components\.ya?ml$ for manager flux (repository=local)
+DEBUG: Using file match: (^|/)\.fvm/fvm_config\.json$ for manager fvm (repository=local)
+DEBUG: Using file match: (^|/)\.fvmrc$ for manager fvm (repository=local)
+DEBUG: Using file match: (^|/)\.gitmodules$ for manager git-submodules (repository=local)
+DEBUG: Using file match: (^|/)(workflow-templates|\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\.ya?ml$ for manager github-actions (repository=local)
+DEBUG: Using file match: (^|/)action\.ya?ml$ for manager github-actions (repository=local)
+DEBUG: Using file match: \.gitlab-ci\.ya?ml$ for manager gitlabci (repository=local)
+DEBUG: Using file match: \.gitlab-ci\.ya?ml$ for manager gitlabci-include (repository=local)
+DEBUG: Using file match: (^|/)gleam.toml$ for manager gleam (repository=local)
+DEBUG: Using file match: (^|/)go\.mod$ for manager gomod (repository=local)
+DEBUG: Using file match: \.gradle(\.kts)?$ for manager gradle (repository=local)
+DEBUG: Using file match: (^|/)gradle\.properties$ for manager gradle (repository=local)
+DEBUG: Using file match: (^|/)gradle/.+\.toml$ for manager gradle (repository=local)
+DEBUG: Using file match: (^|/)buildSrc/.+\.kt$ for manager gradle (repository=local)
+DEBUG: Using file match: \.versions\.toml$ for manager gradle (repository=local)
+DEBUG: Using file match: (^|/)versions.props$ for manager gradle (repository=local)
+DEBUG: Using file match: (^|/)versions.lock$ for manager gradle (repository=local)
+DEBUG: Using file match: (^|/)gradle/wrapper/gradle-wrapper\.properties$ for manager gradle-wrapper (repository=local)
+DEBUG: Using file match: \.cabal$ for manager haskell-cabal (repository=local)
+DEBUG: Using file match: (^|/)requirements\.ya?ml$ for manager helm-requirements (repository=local)
+DEBUG: Using file match: (^|/)values\.ya?ml$ for manager helm-values (repository=local)
+DEBUG: Using file match: (^|/)helmfile\.ya?ml(?:\.gotmpl)?$ for manager helmfile (repository=local)
+DEBUG: Using file match: (^|/)Chart\.ya?ml$ for manager helmv3 (repository=local)
+DEBUG: Using file match: (^|/)bin/hermit$ for manager hermit (repository=local)
+DEBUG: Using file match: ^Formula/[^/]+[.]rb$ for manager homebrew (repository=local)
+DEBUG: Using file match: \.html?$ for manager html (repository=local)
+DEBUG: Using file match: (^|/)plugins\.(txt|ya?ml)$ for manager jenkins (repository=local)
+DEBUG: Using file match: (^|/)jsonnetfile\.json$ for manager jsonnet-bundler (repository=local)
+DEBUG: Using file match: ^.+\.main\.kts$ for manager kotlin-script (repository=local)
+DEBUG: Using file match: (^|/)kustomization\.ya?ml$ for manager kustomize (repository=local)
+DEBUG: Using file match: (^|/)project\.clj$ for manager leiningen (repository=local)
+DEBUG: Using file match: (^|/|\.)pom\.xml$ for manager maven (repository=local)
+DEBUG: Using file match: ^(((\.mvn)|(\.m2))/)?settings\.xml$ for manager maven (repository=local)
+DEBUG: Using file match: (^|/)\.mvn/extensions\.xml$ for manager maven (repository=local)
+DEBUG: Using file match: (^|\/).mvn/wrapper/maven-wrapper.properties$ for manager maven-wrapper (repository=local)
+DEBUG: Using file match: (^|/)package\.js$ for manager meteor (repository=local)
+DEBUG: Using file match: (^|/)Mintfile$ for manager mint (repository=local)
+DEBUG: Using file match: (^|/)\.?mise\.toml$ for manager mise (repository=local)
+DEBUG: Using file match: (^|/)\.?mise/config\.toml$ for manager mise (repository=local)
+DEBUG: Using file match: (^|/)mix\.exs$ for manager mix (repository=local)
+DEBUG: Using file match: (^|/)flake\.nix$ for manager nix (repository=local)
+DEBUG: Using file match: (^|/)\.node-version$ for manager nodenv (repository=local)
+DEBUG: Using file match: (^|/)package\.json$ for manager npm (repository=local)
+DEBUG: Using file match: (^|/)pnpm-workspace\.yaml$ for manager npm (repository=local)
+DEBUG: Using file match: \.(?:cs|fs|vb)proj$ for manager nuget (repository=local)
+DEBUG: Using file match: \.(?:props|targets)$ for manager nuget (repository=local)
+DEBUG: Using file match: (^|/)dotnet-tools\.json$ for manager nuget (repository=local)
+DEBUG: Using file match: (^|/)global\.json$ for manager nuget (repository=local)
+DEBUG: Using file match: (^|/)\.nvmrc$ for manager nvm (repository=local)
+DEBUG: Using file match: (^|/)src/main/features/.+\.json$ for manager osgi (repository=local)
+DEBUG: Using file match: (^|/)pyproject\.toml$ for manager pep621 (repository=local)
+DEBUG: Using file match: (^|/)[\w-]*requirements([-.]\w+)?\.(txt|pip)$ for manager pip_requirements (repository=local)
+DEBUG: Using file match: (^|/)setup\.py$ for manager pip_setup (repository=local)
+DEBUG: Using file match: (^|/)Pipfile$ for manager pipenv (repository=local)
+DEBUG: Using file match: (^|/)pyproject\.toml$ for manager pixi (repository=local)
+DEBUG: Using file match: (^|/)pixi\.toml$ for manager pixi (repository=local)
+DEBUG: Using file match: (^|/)pyproject\.toml$ for manager poetry (repository=local)
+DEBUG: Using file match: (^|/)\.pre-commit-config\.ya?ml$ for manager pre-commit (repository=local)
+DEBUG: Using file match: (^|/)pubspec\.ya?ml$ for manager pub (repository=local)
+DEBUG: Using file match: (^|/)Puppetfile$ for manager puppet (repository=local)
+DEBUG: Using file match: (^|/)\.python-version$ for manager pyenv (repository=local)
+DEBUG: Using file match: (^|/)\.ruby-version$ for manager ruby-version (repository=local)
+DEBUG: Using file match: (^|/)runtime.txt$ for manager runtime-version (repository=local)
+DEBUG: Using file match: \.sbt$ for manager sbt (repository=local)
+DEBUG: Using file match: project/[^/]*\.scala$ for manager sbt (repository=local)
+DEBUG: Using file match: project/build\.properties$ for manager sbt (repository=local)
+DEBUG: Using file match: (^|/)repositories$ for manager sbt (repository=local)
+DEBUG: Using file match: (^|/)\.scalafmt.conf$ for manager scalafmt (repository=local)
+DEBUG: Using file match: (^|/)setup\.cfg$ for manager setup-cfg (repository=local)
+DEBUG: Using file match: (^|/)Package\.swift for manager swift (repository=local)
+DEBUG: Using file match: \.tf$ for manager terraform (repository=local)
+DEBUG: Using file match: (^|/)\.terraform-version$ for manager terraform-version (repository=local)
+DEBUG: Using file match: (^|/)terragrunt\.hcl$ for manager terragrunt (repository=local)
+DEBUG: Using file match: (^|/)\.terragrunt-version$ for manager terragrunt-version (repository=local)
+DEBUG: Using file match: \.tflint\.hcl$ for manager tflint-plugin (repository=local)
+DEBUG: Using file match: ^\.travis\.ya?ml$ for manager travis (repository=local)
+DEBUG: Using file match: (^|/)\.vela\.ya?ml$ for manager velaci (repository=local)
+DEBUG: Using file match: (^|/)vendir\.yml$ for manager vendir (repository=local)
+DEBUG: Using file match: ^\.woodpecker(?:/[^/]+)?\.ya?ml$ for manager woodpecker (repository=local)
+DEBUG: Matched 1 file(s) for manager bun: package.json (repository=local)
+DEBUG: No bun lockfiles found (repository=local)
+DEBUG: Matched 1 file(s) for manager gomod: go.mod (repository=local)
+DEBUG: Matched 1 file(s) for manager npm: package.json (repository=local)
+DEBUG: No content found (repository=local, packageFile=package.json)
+DEBUG: Detecting pnpm Workspaces (repository=local)
+DEBUG: Detecting workspaces (repository=local)
+DEBUG: Finding locked versions (repository=local)
+DEBUG: manager extract durations (ms) (repository=local)
+       "managers": {"bun": 1, "npm": 1, "gomod": 3}
+DEBUG: Found gomod package files (repository=local)
+DEBUG: Found 1 package file(s) (repository=local)
+ INFO: Dependency extraction complete (repository=local)
+       "stats": {
+         "managers": {"gomod": {"fileCount": 1, "depCount": 3}},
+         "total": {"fileCount": 1, "depCount": 3}
+       }
+DEBUG: Dependency: golang.org/x/sys, is disabled (repository=local)
+DEBUG: Found no satisfying versions with 'loose' versioning (repository=local)
+DEBUG: Could not determine new digest for update. (repository=local)
+       "packageName": "github.com/safchain/ethtool",
+       "currentValue": "v0.3.1-0.20231027162144-83e5e0097c91",
+       "datasource": "go",
+       "newValue": "v0.5.10",
+       "bucket": "non-major"
+DEBUG: PackageFiles.add() - Package file saved for base branch (repository=local)
+DEBUG: Package releases lookups complete (repository=local)
+DEBUG: Repository libYears (repository=local)
+       "managerLibYears": {"gomod": 0},
+       "totalLibYears": 0,
+       "totalDepsCount": 3,
+       "outdatedDepsCount": 0
+DEBUG: branchifyUpgrades (repository=local)
+DEBUG: detectSemanticCommits() (repository=local)
+DEBUG: getCommitMessages (repository=local)
+DEBUG: semanticCommits: detected "unknown" (repository=local)
+DEBUG: semanticCommits: disabled (repository=local)
+DEBUG: 0 flattened updates found:  (repository=local)
+DEBUG: Returning 0 branch(es) (repository=local)
+DEBUG: config.repoIsOnboarded=true (repository=local)
+DEBUG: packageFiles with updates (repository=local)
+       "config": {
+         "gomod": [
+           {
+             "deps": [
+               {
+                 "datasource": "golang-version",
+                 "versioning": "go-mod-directive",
+                 "depType": "golang",
+                 "depName": "go",
+                 "currentValue": "1.23.4",
+                 "managerData": {"lineNumber": 2},
+                 "updates": [],
+                 "packageName": "go",
+                 "warnings": [],
+                 "sourceUrl": "https://github.com/golang/go",
+                 "registryUrl": "https://raw.githubusercontent.com/golang/website",
+                 "homepage": "https://go.dev/",
+                 "currentVersion": "1.23.4",
+                 "currentVersionTimestamp": "2024-12-03T00:00:00.000Z",
+                 "currentVersionAgeInDays": 142,
+                 "fixedVersion": "1.23.4"
+               },
+               {
+                 "datasource": "go",
+                 "depType": "require",
+                 "depName": "github.com/safchain/ethtool",
+                 "currentValue": "v0.3.1-0.20231027162144-83e5e0097c91",
+                 "currentDigest": "83e5e0097c91",
+                 "digestOneAndOnly": true,
+                 "versioning": "loose",
+                 "managerData": {"lineNumber": 4},
+                 "updates": [],
+                 "packageName": "github.com/safchain/ethtool",
+                 "warnings": [
+                   {
+                     "message": "Could not determine new digest for update (go package github.com/safchain/ethtool)",
+                     "topic": "github.com/safchain/ethtool"
+                   }
+                 ],
+                 "sourceUrl": "https://github.com/safchain/ethtool",
+                 "currentVersion": "v0.3.1-0.20231027162144-83e5e0097c91",
+                 "isSingleVersion": true,
+                 "fixedVersion": "v0.3.1-0.20231027162144-83e5e0097c91"
+               },
+               {
+                 "datasource": "go",
+                 "depType": "indirect",
+                 "depName": "golang.org/x/sys",
+                 "currentValue": "v0.29.0",
+                 "enabled": false,
+                 "managerData": {"lineNumber": 6},
+                 "updates": [],
+                 "packageName": "golang.org/x/sys",
+                 "skipReason": "disabled"
+               }
+             ],
+             "packageFile": "go.mod"
+           }
+         ]
+       }
+DEBUG: detectSemanticCommits() (repository=local)
+DEBUG: semanticCommits: returning "disabled" from cache (repository=local)
+DEBUG: Repository timing splits (milliseconds) (repository=local)
+       "splits": {"init": 69, "extract": 264, "lookup": 46},
+       "total": 380
+DEBUG: Package cache statistics (repository=local)
+       "get": {"count": 3, "avgMs": 13, "medianMs": 5, "maxMs": 32, "totalMs": 38},
+       "set": {"count": 0, "avgMs": 0, "medianMs": 0, "maxMs": 0, "totalMs": 0}
+DEBUG: HTTP statistics (repository=local)
+       "hosts": {},
+       "requests": 0
+DEBUG: HTTP cache statistics (repository=local)
+DEBUG: Lookup statistics (repository=local)
+       "golang-version": {"count": 1, "avgMs": 35, "medianMs": 35, "maxMs": 35, "totalMs": 35},
+       "go": {"count": 1, "avgMs": 37, "medianMs": 37, "maxMs": 37, "totalMs": 37}
+DEBUG: Cache fallback URLs (repository=local)
+       "count": 0,
+       "hits": {}
+ INFO: Repository finished (repository=local)
+       "cloned": undefined,
+       "durationMs": 380
+DEBUG: Checking file package cache for expired items
+DEBUG: Deleted 0 of 5 file cached entries in 34ms
