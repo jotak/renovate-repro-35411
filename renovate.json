@@ -19,6 +19,10 @@
         "enabled": true
       },
       {
+        "matchPackageNames": ["github.com/prometheus/prometheus"],
+        "enabled": false
+      },
+      {
         "matchPackageNames": ["**"],
         "groupName": "Go modules"
       }
