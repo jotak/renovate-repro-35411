@@ -1,0 +1,292 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flowlogs-pipeline-configuration
+data:
+  flowlogs-pipeline.conf.yaml: |
+    log-level: error
+    metricsSettings:
+      port: 9102
+    parameters:
+      - ingest:
+          collector:
+            hostname: 0.0.0.0
+            port: 2055
+            portLegacy: 2056
+          type: collector
+        name: ingest_collector
+      - name: transform_generic
+        transform:
+          generic:
+            rules:
+              - input: SrcAddr
+                output: srcIP
+              - input: SrcPort
+                output: srcPort
+              - input: DstAddr
+                output: dstIP
+              - input: DstPort
+                output: dstPort
+              - input: Proto
+                output: proto
+              - input: Bytes
+                output: bytes
+              - input: TCPFlags
+                output: TCPFlags
+              - input: SrcAS
+                output: srcAS
+              - input: DstAS
+                output: dstAS
+          type: generic
+      - name: transform_network
+        transform:
+          network:
+            rules:
+              - type: add_service
+                add_service:
+                  input: dstPort
+                  output: service
+                  protocol: proto
+              - type: add_subnet
+                add_subnet:
+                  input: dstIP
+                  output: dstSubnet24
+                  subnet_mask: /24
+              - type: add_subnet
+                add_subnet:
+                  input: srcIP
+                  output: srcSubnet24
+                  subnet_mask: /24
+              - type: add_subnet
+                add_subnet:
+                  input: srcIP
+                  output: srcSubnet
+                  subnet_mask: /16
+              - type: add_subnet
+                add_subnet:
+                  input: dstIP
+                  output: dstSubnet
+                  subnet_mask: /16
+              - type: add_kubernetes
+                kubernetes:
+                  ipField: srcIP
+                  output: srcK8S
+                  labels_prefix: srcK8S_labels
+              - type: add_location
+                add_location:
+                  input: dstIP
+                  output: dstLocation
+          type: network
+      - extract:
+          aggregates:
+            rules:
+              - name: bandwidth_network_service
+                groupByKeys:
+                  - service
+                operationType: sum
+                operationKey: bytes
+              - name: bandwidth_source_destination_subnet
+                groupByKeys:
+                  - dstSubnet24
+                  - srcSubnet24
+                operationType: sum
+                operationKey: bytes
+              - name: bandwidth_source_subnet
+                groupByKeys:
+                  - srcSubnet
+                operationType: sum
+                operationKey: bytes
+              - name: dest_connection_subnet_count
+                groupByKeys:
+                  - dstSubnet
+                operationType: sum
+                operationKey: isNewFlow
+              - name: src_connection_count
+                groupByKeys:
+                  - srcSubnet
+                operationType: count
+                operationKey: ""
+              - name: TCPFlags_count
+                groupByKeys:
+                  - TCPFlags
+                operationType: count
+                operationKey: ""
+              - name: dst_as_connection_count
+                groupByKeys:
+                  - dstAS
+                operationType: count
+                operationKey: ""
+              - name: src_as_connection_count
+                groupByKeys:
+                  - srcAS
+                operationType: count
+                operationKey: ""
+              - name: count_source_destination_subnet
+                groupByKeys:
+                  - dstSubnet24
+                  - srcSubnet24
+                operationType: count
+                operationKey: ""
+              - name: bandwidth_destination_subnet
+                groupByKeys:
+                  - dstSubnet
+                operationType: sum
+                operationKey: bytes
+              - name: bandwidth_namespace
+                groupByKeys:
+                  - srcK8S_Namespace
+                  - srcK8S_Type
+                operationType: sum
+                operationKey: bytes
+              - name: dest_connection_location_count
+                groupByKeys:
+                  - dstLocation_CountryName
+                operationType: count
+                operationKey: ""
+              - name: mice_count
+                groupByKeys:
+                  - mice_Evaluate
+                operationType: count
+                operationKey: ""
+              - name: elephant_count
+                groupByKeys:
+                  - elephant_Evaluate
+                operationType: count
+                operationKey: ""
+              - name: dest_service_count
+                groupByKeys:
+                  - service
+                operationType: count
+                operationKey: ""
+          type: aggregates
+        name: extract_aggregate
+      - encode:
+          prom:
+            metrics:
+              - name: bandwidth_per_network_service
+                type: counter
+                valueKey: bandwidth_network_service_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: bandwidth_per_source_destination_subnet
+                type: counter
+                valueKey: bandwidth_source_destination_subnet_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: bandwidth_per_source_subnet
+                type: counter
+                valueKey: bandwidth_source_subnet_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: connections_per_destination_subnet
+                type: counter
+                valueKey: dest_connection_subnet_count_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: connections_per_source_subnet
+                type: counter
+                valueKey: src_connection_count_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: connections_per_tcp_flags
+                type: counter
+                valueKey: TCPFlags_count_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: connections_per_destination_as
+                type: counter
+                valueKey: dst_as_connection_count_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: connections_per_source_as
+                type: counter
+                valueKey: src_as_connection_count_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: count_per_source_destination_subnet
+                type: counter
+                valueKey: count_source_destination_subnet_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: egress_per_destination_subnet
+                type: counter
+                valueKey: bandwidth_destination_subnet_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: egress_per_namespace
+                type: counter
+                valueKey: bandwidth_namespace_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: connections_per_destination_location
+                type: counter
+                valueKey: dest_connection_location_count_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: mice_count
+                type: counter
+                valueKey: mice_count_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: elephant_count
+                type: counter
+                valueKey: elephant_count_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+              - name: service_count
+                type: counter
+                valueKey: dest_service_count_value
+                labels:
+                  - groupByKeys
+                  - aggregate
+                buckets: []
+            prefix: flp_
+          type: prom
+        name: encode_prom
+      - name: write_loki
+        write:
+          loki:
+            url: http://loki.default.svc.cluster.local:3100
+            staticLabels:
+              job: flowlogs-pipeline
+          type: loki
+    pipeline:
+      - name: ingest_collector
+      - follows: ingest_collector
+        name: transform_generic
+      - follows: transform_generic
+        name: transform_network
+      - follows: transform_network
+        name: extract_aggregate
+      - follows: extract_aggregate
+        name: encode_prom
+      - follows: transform_network
+        name: write_loki
